@@ -20,7 +20,7 @@ function least(x,y:integer):integer;   begin  result := ifthen(x<y, x, y);  end;
 
 procedure Add(carry:integer; const Cmp:TOp);
 begin
-      for var i := 0 to counter.Count-1 do begin
+      for var i := 1 to counter.Count do begin
            if counter[i] = 0 then begin
                                      counter[i] := carry;
                                      carry   := 0;
