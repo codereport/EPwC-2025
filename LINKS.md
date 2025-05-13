@@ -23,3 +23,9 @@
 * https://youtu.be/l2VemFmfkG4si=DpTZMArZgyU__Y8O
 * https://youtu.be/l2VemFmfkG4
 * https://www.mycompiler.io/view/DT0JYmp5Zk0
+
+# Meeting 4 (May 12, 2025)
+
+* https://challenge.dyalog.com/?goto=P2025201
+* https://glot.io/
+* https://www.mycompiler.io/
