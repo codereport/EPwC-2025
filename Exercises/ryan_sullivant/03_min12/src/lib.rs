@@ -3,7 +3,7 @@ use std::{marker::PhantomData, ops::Deref};
 
 // BinaryCounter and functions
 
-pub struct BinaryCounter<'a, T, Op>
+pub struct BinaryCounter<T, Op>
 where
     T: PartialEq + Copy + Debug,
     Op: FnMut(&T, &T) -> T,
@@ -11,10 +11,9 @@ where
     counter: Vec<T>,
     op: Op,
     zero: T,
-    phantom: PhantomData<&'a T>,
 }
 
-impl<'a, T, Op> BinaryCounter<'a, T, Op>
+impl<'a, T, Op> BinaryCounter<T, Op>
 where
     T: PartialEq + Copy + Debug,
     Op: FnMut(&T, &T) -> T,
@@ -24,7 +23,6 @@ where
             counter: Vec::new(),
             op,
             zero,
-            phantom: PhantomData,
         }
     }
 
@@ -33,7 +31,6 @@ where
             counter: Vec::with_capacity(capacity),
             op,
             zero,
-            phantom: PhantomData,
         }
     }
 
