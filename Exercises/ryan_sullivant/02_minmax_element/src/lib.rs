@@ -23,6 +23,42 @@ where
 }
 
 #[inline]
+fn minmax2_unsafe<T>(a: usize, b: usize, s: &[T]) -> (usize, usize)
+where
+    T: Ord,
+{
+    if &unsafe { s.get_unchecked(b) } < &unsafe { s.get_unchecked(a) } {
+        (b, a)
+    } else {
+        (a, b)
+    }
+}
+
+#[inline]
+fn min2_unsafe<T>(a: usize, b: usize, s: &[T]) -> usize
+where
+    T: Ord,
+{
+    if &unsafe { s.get_unchecked(b) } < &unsafe { s.get_unchecked(a) } {
+        b
+    } else {
+        a
+    }
+}
+
+#[inline]
+fn max2_unsafe<T>(a: usize, b: usize, s: &[T]) -> usize
+where
+    T: Ord,
+{
+    if &unsafe { s.get_unchecked(b) } < &unsafe { s.get_unchecked(a) } {
+        a
+    } else {
+        b
+    }
+}
+
+#[inline]
 pub fn minmax_element<T>(s: &[T]) -> Option<(usize, usize)>
 where
     T: Ord,
@@ -45,6 +81,36 @@ where
         } else {
             min = min2(min, curr, s);
             max = max2(max, curr, s);
+            curr += 1;
+        }
+    }
+
+    Some((min, max))
+}
+
+#[inline]
+pub fn minmax_element_unsafe<T>(s: &[T]) -> Option<(usize, usize)>
+where
+    T: Ord,
+{
+    if s.len() < 1 {
+        return None;
+    } else if s.len() < 2 {
+        return Some((0, 0));
+    }
+    let (mut min, mut max) = minmax2_unsafe(0, 1, s);
+    let mut curr = 2;
+
+    while curr != s.len() {
+        let next = curr + 1;
+        if next < s.len() {
+            let (p_min, p_max) = minmax2_unsafe(curr, next, s);
+            min = min2_unsafe(min, p_min, s);
+            max = max2_unsafe(max, p_max, s);
+            curr = next + 1;
+        } else {
+            min = min2_unsafe(min, curr, s);
+            max = max2_unsafe(max, curr, s);
             curr += 1;
         }
     }

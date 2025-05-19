@@ -1,0 +1,14 @@
+[package]
+name = "min12"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+rand = "0.9"
+
+[[bench]]
+name = "min12"
+harness = false
