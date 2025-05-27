@@ -29,3 +29,9 @@
 * https://challenge.dyalog.com/?goto=P2025201
 * https://glot.io/
 * https://www.mycompiler.io/
+
+# Meeting 5 (May 26, 2025)
+
+* https://www.youtube.com/watch?v=dq8MhTFCs80
+* https://www.youtube.com/watch?v=kZCPURMH744
+* https://jcarroll.com.au/2023/04/03/polyglot-overloading/
